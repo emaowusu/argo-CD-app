@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-app
+  namespace: argocd           # ArgoCD must watch this namespace
+spec:
+  project: default
+
+  #  Git repo containing your Kubernetes manifests ---
+  source:
+    repoURL: https://github.com/emaowusu/argo-CD-app.git
+    targetRevision: main         # branch, tag, or commit SHA
+    path: k8s                   # folder inside repo containing YAMLs
+
+  # --- Destination: Where to apply manifests ---
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-ns
+
+  # --- Sync options ---
+  syncPolicy:
+    automated:
+      prune: true               # delete resources removed from Git
+      selfHeal: true            # fix drift automatically
+    syncOptions:
+      - CreateNamespace=true    # create namespace if not exists
+
