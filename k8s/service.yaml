@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name: my-service
 spec:
+  type: NodePort
   selector:
     app.kubernetes.io/name: argo-app
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3000
+      nodePort: 30080
 
