@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: argo-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: argo-app
+  template:
+    metadata:
+      labels:
+        app: argo-app
+    spec:
+      containers:
+      - name: argo-app
+        image: emacodes/argo-app:1.0
+        ports:
+        - containerPort: 3000
+
