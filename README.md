@@ -1,6 +1,6 @@
 # argo-CD-app
 
-## Create and apply argocd pod
+## Create and apply argocd 
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
@@ -16,7 +16,7 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 ## Username and Password == admin and the base64 decoded
 kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
-echo NDFmUzlNY0ZqdWxjVWxhbA== | base64 --decode
+echo PASSWORD | base64 --decode
 
 
 
