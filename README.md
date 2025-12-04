@@ -31,13 +31,13 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 https://127.0.0.1:8080
 ```
 
-## Username and Password == admin and the base64 decoded
+## Username = admin then get the encoded password
 ```bash
 kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
 ```
 ## Decode the Password
 ```bash
-echo PASSWORD | base64 --decode
+echo theEncodedPASSWORD | base64 --decode
 ```
 
 ## Decode and Get the Password once
