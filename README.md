@@ -42,5 +42,5 @@ echo theEncodedPASSWORD | base64 --decode
 
 ## Decode and Get the Password once
 ```bash
-kubectl get secret argocd-initial-admin-secret -n argocd1 -o jsonpath="{.data.password}" | base64 --decode
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
 ```
