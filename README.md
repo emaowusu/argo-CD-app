@@ -44,3 +44,8 @@ echo theEncodedPASSWORD | base64 --decode
 ```bash
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
 ```
+
+## Apply argo-app.yaml file to see the synced application on ArgoCD UI
+```bash
+kubectl apply -f argo-app.yaml
+```
